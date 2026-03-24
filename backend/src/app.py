@@ -53,6 +53,11 @@ app.add_middleware(
 )
 
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
+
 @app.get("/api/quotes")
 async def get_quotes(
     assets: str = Query(default=None),
